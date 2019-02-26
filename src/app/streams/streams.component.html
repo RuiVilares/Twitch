@@ -1,0 +1,35 @@
+    <!-- Header -->
+    <header class="py-3 mb-3">
+        <div class="row h-100 align-items-center">
+          <div class="col-md-12 offset-md-3 input-group">
+            <input 
+                class="col-md-4 form-control"
+              #searchBox id="search-box" 
+              (input)="search(searchBox.value)" 
+              type="text" 
+              placeholder="Search..." 
+          />
+            <input 
+                class="col-md-2 form-control" 
+                #limitBox id="limit-box" 
+                (input)="saveLimit(limitBox.value, searchBox.value)"
+                type="number" 
+                placeholder="Limit"
+                value="{{this.streamService.LIMIT}}"
+          />
+          </div>
+        </div>
+    </header>
+
+    <div class="row">
+      <div *ngFor="let stream of streams;" class="col-12 col-md-6 col-lg-4 col-xl-3 streams">
+          <div class="card h-100">
+            <a routerLink="/stream/{{stream.id}}"><img class="card-img-top" src="{{stream.logo}}" alt=""></a>
+            <div class="card-body">
+              <a routerLink="/stream/{{stream.id}}"><h4 class="card-title">{{stream.game}}</h4></a>
+              <p class="card-text"><b>Description:</b> {{stream.description}}</p>
+              <p class="card-text"><b>Viewers:</b> {{stream.viewers}}</p>
+            </div>
+          </div>
+      </div>
+    </div>

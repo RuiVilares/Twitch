@@ -1,0 +1,17 @@
+<div class="row">
+
+  <div *ngIf="stream" class="col-10 offset-1 stream">
+    <div class="card h-100">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe [src]='controllerSrc' height='300' width='400' frameborder='0' scrolling='no' allowfullscreen='true'></iframe>
+  		  </div>
+
+      <div class="card-body">
+        <h4 class="card-title"><b>Game:</b> {{stream.game}}</h4>
+        <h4 class="card-text"><b>Description:</b> {{stream.description}}</h4>
+        <h4 class="card-text"><b>Viewers:</b> {{stream.viewers}}</h4>
+      </div>
+    </div>
+  </div>
+
+</div>
